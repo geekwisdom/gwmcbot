@@ -52,3 +52,4 @@ You are free to create a fork or a pull request to participate. You also can rep
 
 ## Credits
 Thanks to [Torchbot](https://github.com/woder/TorchBot) for a code base. I've just stolen the half project lol.
+"# gwmcbot" 

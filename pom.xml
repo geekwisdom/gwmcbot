@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2019. by David Lüdtke (MrKinau).
-  ~ 2.5.2019
+  ~ Based on  https://github.com/MrKinau/FishingBot Copyright (c) 2019. by David Lüdtke (MrKinau). GPL 3.0
+  Released by brad Detchevery Jan 12, 2020
+  GPL-3.0
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -9,14 +10,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>systems.kinau</groupId>
-    <artifactId>FishingBot</artifactId>
+    <groupId>org.geekWisdom</groupId>
+    <artifactId>gwMCBot</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>FishingBot</name>
-    <description>An AFK fishing bot for minecraft</description>
+    <name>gwMCBot</name>
+    <description>A minecraft chatbot for GeekWisdom.org, based on kinau systems FishingBot</description>
 
     <properties>
-        <jar.finalName>Fishingbot</jar.finalName>
+        <jar.finalName>GWmcBot</jar.finalName>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
