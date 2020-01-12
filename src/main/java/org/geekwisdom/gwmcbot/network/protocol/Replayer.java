@@ -7,11 +7,11 @@ package org.geekwisdom.gwmcbot.network.protocol;
 
 import com.google.common.io.CharStreams;
 import lombok.Getter;
-import systems.kinau.fishingbot.FishingBot;
-import systems.kinau.fishingbot.network.protocol.play.PacketOutLook;
-import systems.kinau.fishingbot.network.protocol.play.PacketOutPlayer;
-import systems.kinau.fishingbot.network.protocol.play.PacketOutPosLook;
-import systems.kinau.fishingbot.network.protocol.play.PacketOutPosition;
+import org.geekwisdom.gwmcbot.GWmcbot;
+import org.geekwisdom.gwmcbot.network.protocol.play.PacketOutLook;
+import org.geekwisdom.gwmcbot.network.protocol.play.PacketOutPlayer;
+import org.geekwisdom.gwmcbot.network.protocol.play.PacketOutPosLook;
+import org.geekwisdom.gwmcbot.network.protocol.play.PacketOutPosition;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +58,7 @@ public class Replayer {
                     float yaw = buffer.getFloat();
                     float pitch = buffer.getFloat();
                     boolean onGround = buffer.get() != 0;
-                    FishingBot.getInstance().getNet().sendPacket(new PacketOutLook(yaw, pitch, onGround));
+                    GWmcbot.getInstance().getNet().sendPacket(new PacketOutLook(yaw, pitch, onGround));
                     break;
                 }
                 case 14: {
@@ -68,7 +68,7 @@ public class Replayer {
                     float yaw = buffer.getFloat();
                     float pitch = buffer.getFloat();
                     boolean onGround = buffer.get() != 0;
-                    FishingBot.getInstance().getNet().sendPacket(new PacketOutPosLook(x, y, z, yaw, pitch, onGround));
+                    GWmcbot.getInstance().getNet().sendPacket(new PacketOutPosLook(x, y, z, yaw, pitch, onGround));
                     break;
                 }
                 case 13: {
@@ -76,12 +76,12 @@ public class Replayer {
                     double y = buffer.getDouble();
                     double z = buffer.getDouble();
                     boolean onGround = buffer.get() != 0;
-                    FishingBot.getInstance().getNet().sendPacket(new PacketOutPosition(x, y, z, onGround));
+                    GWmcbot.getInstance().getNet().sendPacket(new PacketOutPosition(x, y, z, onGround));
                     break;
                 }
                 case 12: {
                     boolean onGround = buffer.get() != 0;
-                    FishingBot.getInstance().getNet().sendPacket(new PacketOutPlayer(onGround));
+                    GWmcbot.getInstance().getNet().sendPacket(new PacketOutPlayer(onGround));
                     break;
                 }
             }

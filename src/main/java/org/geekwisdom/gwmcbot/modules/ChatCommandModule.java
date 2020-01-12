@@ -46,7 +46,7 @@ public class ChatCommandModule extends Module implements Listener {
         }
 
 	if (isEnabled() && event.getText().contains("Hello?")) {
-            GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("Hello Sir!"));
+            GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("I am stuck, somebody please help me."));
         }
     }
 }

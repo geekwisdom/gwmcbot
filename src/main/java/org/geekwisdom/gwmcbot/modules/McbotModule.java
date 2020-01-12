@@ -59,7 +59,7 @@ public class McbotModule extends Module implements Runnable, Listener {
     @Getter @Setter long lastFish = System.currentTimeMillis();
 
     @Getter @Setter private int heldSlot;
-
+    private int helpcounter=0;
     @Override
     public void onEnable() {
         GWmcbot.getInstance().getEventManager().registerListener(this);
@@ -363,9 +363,17 @@ public class McbotModule extends Module implements Runnable, Listener {
 		GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/teleport -80.7 59.0 -10.45"));    
 		}
                else { 
-		if (GWmcbot.getInstance().getSkeleton() == 0) GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/tellraw @a[level=0] {\"text\":\"<GeekWisdom> Help Me!, Help Me!\"}"));    
+		if (GWmcbot.getInstance().getSkeleton() == 0) 
+
+			{			
+			helpcounter++;
+			if (helpcounter > 1000) {
+ 				GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/tellraw @a[level=0] {\"text\":\"<GeekWisdom> Help Me!, Help Me!\"}"));    
+				helpcounter=0;
+				}
+			}
                 Thread.sleep(2500);
-		GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/xp add @a[x=-80.7,y=59.0,z=-10.45,distance=..3] 100"));    
+		// GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/xp add @a[x=-80.7,y=59.0,z=-10.45,distance=..3] 100"));    
 		GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/tellraw @a[x=-80.7,y=59.0,z=-10.45,distance=..3] {\"text\":\"You found me! Good Job!!\"}"));    
 		    }
     

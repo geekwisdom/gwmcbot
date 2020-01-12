@@ -103,7 +103,7 @@
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
                         <manifestEntries>
-                            <Main-Class>systems.kinau.fishingbot.Main</Main-Class>
+                            <Main-Class>org.geekwisdom.gwmcbot.Main</Main-Class>
                         </manifestEntries>
                     </archive>
                 </configuration>

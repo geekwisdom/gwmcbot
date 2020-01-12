@@ -30,7 +30,7 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-import systems.kinau.fishingbot.FishingBot;
+import org.geekwisdom.gwmcbot.GWmcbot;
 
 import java.io.IOException;
 
@@ -59,11 +59,11 @@ public class Authenticator {
                     .build();
 
             HttpResponse answer = HttpClientBuilder.create().build().execute(request);
-            FishingBot.getLog().info("Try to authenticate " + username + ":" + password.replaceAll(".", "*"));
+            GWmcbot.getLog().info("Try to authenticate " + username + ":" + password.replaceAll(".", "*"));
 
             if (answer.getStatusLine().getStatusCode() != 200) {
-                FishingBot.getLog().severe("Authentication failed with code " + answer.getStatusLine().getStatusCode() + " from " + AUTH_SERVER + ": " + answer.getStatusLine());
-                FishingBot.getLog().severe(EntityUtils.toString(answer.getEntity(), Charsets.UTF_8));
+                GWmcbot.getLog().severe("Authentication failed with code " + answer.getStatusLine().getStatusCode() + " from " + AUTH_SERVER + ": " + answer.getStatusLine());
+                GWmcbot.getLog().severe(EntityUtils.toString(answer.getEntity(), Charsets.UTF_8));
                 return null;
             }
 
@@ -72,10 +72,10 @@ public class Authenticator {
             String clientToken = responseJson.get("clientToken").getAsString();
             String profile = responseJson.getAsJsonObject("selectedProfile").get("id").getAsString();
             String username = responseJson.getAsJsonObject("selectedProfile").get("name").getAsString();
-            FishingBot.getLog().info("Authentication successful!");
+            GWmcbot.getLog().info("Authentication successful!");
             return new AuthData(accessToken, clientToken, profile, username);
         } catch (IOException e) {
-            FishingBot.getLog().severe("Error while connecting to: " + AUTH_SERVER);
+            GWmcbot.getLog().severe("Error while connecting to: " + AUTH_SERVER);
         }
         return null;
     }
