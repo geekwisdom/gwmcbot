@@ -374,7 +374,7 @@ public class McbotModule extends Module implements Runnable, Listener {
 			}
                 Thread.sleep(2500);
 		// GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/xp add @a[x=-80.7,y=59.0,z=-10.45,distance=..3] 100"));    
-		GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("/tellraw @a[x=-80.7,y=59.0,z=-10.45,distance=..3] {\"text\":\"You found me! Good Job!!\"}"));    
+
 		    }
     
             } catch (InterruptedException e) {

@@ -27,6 +27,7 @@ import org.geekwisdom.gwmcbot.network.protocol.play.PacketOutChat;
 public class ChatCommandModule extends Module implements Listener {
 
 
+    int FoundMe=0;   
 
     @Override
     public void onEnable() {
@@ -40,13 +41,23 @@ public class ChatCommandModule extends Module implements Listener {
 
     @EventHandler
     public void onChat(ChatEvent event) {
-        if (isEnabled() && event.getText().contains("Skeleton")) {
-	   GWmcbot.getInstance().setSkeleton();
-	   GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("Look Out !!"));
-        }
 
 	if (isEnabled() && event.getText().contains("Hello?")) {
             GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("I am stuck, somebody please help me."));
         }
+
+	if (isEnabled() && event.getJson().contains("skeleton")) {
+            GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("Watch Out!"));
+           FoundMe=1;
+          try { Thread.sleep(1500); } catch (Exception e) { e.printStackTrace(); }
+           GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("You found me - Good Job!"));
+
+        }
+
+	else
+		{
+         // if (isEnabled())   GWmcbot.getInstance().getNet().sendPacket(new PacketOutChat("I heard you you said:" + event.getText()));
+	 if (isEnabled()) System.out.println("I heard you you said:" + event.getText());
+		}
     }
 }

@@ -37,6 +37,8 @@ public class PacketInChat extends Packet {
 		this.text = readString(in);
 		try {
 			JsonObject object = PARSER.parse(text).getAsJsonObject();
+			String jsonString = object.toString();
+			System.out.println("Got Chat mesg: " + jsonString);
 
 			try {
 				this.text = TextComponent.toPlainText(object);
@@ -44,7 +46,7 @@ public class PacketInChat extends Packet {
 				//Ignored
 			}
 
-			GWmcbot.getInstance().getEventManager().callEvent(new ChatEvent(getText()));
+			GWmcbot.getInstance().getEventManager().callEvent(new ChatEvent(getText(),jsonString));
 		} catch (Exception ignored) {
 			//Ignored
 		}

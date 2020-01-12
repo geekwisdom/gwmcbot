@@ -27,4 +27,7 @@ import org.geekwisdom.gwmcbot.event.Event;
 public class ChatEvent extends Event {
 
     @Getter private String text;
+    @Getter private String json;
+
+
 }
